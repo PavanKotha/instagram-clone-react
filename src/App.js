@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Post from "./Post";
 
 function App() {
+  const [posts, setPosts] = useState([
+    {
+      username: "PavanKotha",
+      caption: "Well, we are doing it",
+      imageUrl:
+        "https://miro.medium.com/max/3600/1*HSisLuifMO6KbLfPOKtLow.jpeg",
+    },
+    {
+      username: "PavanKotha",
+      caption: "No No No!!!",
+      imageUrl:
+        "https://miro.medium.com/max/3600/1*HSisLuifMO6KbLfPOKtLow.jpeg",
+    },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app__header">
+        <img
+          className="app__headerImage"
+          src="https://www.foottraffik.co/wp-content/uploads/2017/09/instagram-logo.png"
+          alt=""
+        ></img>
+      </div>
+
+      {posts.map((post) => {
+        return (
+          <Post
+            username={post.username}
+            caption={post.caption}
+            imageUrl={post.imageUrl}
+          />
+        );
+      })}
+
+      {/* post */}
+      {/* post */}
     </div>
   );
 }
